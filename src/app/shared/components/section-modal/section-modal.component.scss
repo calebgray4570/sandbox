@@ -1,0 +1,27 @@
+ul {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+.section-item {
+    min-width: 30em;
+    cursor: pointer;
+}
+.section-item:hover {
+    background: rgba(115, 212, 115, 0.5);
+}
+
+.section-item-selected {
+    background-color: rgba(115, 212, 115, 0.5);
+}
+
+.prev-selected {
+    background-color: rgba(224, 221, 221, 0.5);
+}
+
+.button-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}

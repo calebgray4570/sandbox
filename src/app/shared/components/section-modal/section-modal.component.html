@@ -1,0 +1,21 @@
+
+<h1 mat-dialog-title>Select a Section</h1>
+<div mat-dialog-content>
+    <ul *ngFor="let section of sectionsList; let i = index">
+        <li>
+            <mat-card *ngIf="section.data.sectionNum <= 0" class="section-item"
+                [ngClass]="{'section-item-selected': selectedIndex == i}"
+                (click)="handleSelect(i)">
+                {{section.data.section_name}}
+            </mat-card>
+            <mat-card *ngIf="section.data.sectionNum > 0" class="prev-selected">
+                {{section.data.section_name}}
+            </mat-card>
+        </li>
+    </ul>
+</div>
+<div class="button-wrap">
+    <button mat-flat-button color="warn" (click)="handleCancel()">Cancel</button>
+    <button mat-flat-button color="primary" (click)="handleSubmit()">Select</button>
+</div>
+      

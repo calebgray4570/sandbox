@@ -1,0 +1,61 @@
+<!--Login form should be working with the ngSumbit and the type=submit on the button,
+but this is not the case for some reason. For now we will just call an (click)
+even listener on the "submit" button and pass the form that way.-->
+
+<div class="login"
+    fxLayout="row"
+    fxLayoutAlign="start center">
+    <div class="left"
+        fxHide.sm>
+        <img src="https://i.imgur.com/vO1wznc.png" alt="">
+    </div>
+    <div class="right">
+        <form *ngIf="login" [formGroup]="loginForm">
+            <span id="text_1">Welcome back! Please login to your account.</span>
+            <mat-form-field id="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="email@example.com">
+                <mat-hint>Enter your email address.</mat-hint>
+                <mat-error *ngIf="loginForm.get('email').hasError('required')">Email address is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field id="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="{{passwordPlaceholder}}">
+                <mat-hint>Enter your password.</mat-hint>
+                <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is required.</mat-error>
+            </mat-form-field>
+            <div id="button-wrap">
+                <mat-checkbox>Remember me</mat-checkbox>
+                <a href="javascript:void(0);" (click)="togglePasswordReset()">Forgot Password</a>
+            </div>
+            <div id="button-wrap">
+                <button mat-flat-button color="warn" (click)="onLoginSubmit()">Login</button>
+                <button mat-stroked-button color="warn" (click)="registerAccount()">Sign up</button>
+            </div>
+        </form>
+
+        <form *ngIf="forgotPassword" [formGroup]="loginForm">
+            <span id="text_1">Forgot Password?</span>
+            <span id="text_1">Please enter the email associated with your account.</span>
+            <mat-form-field id="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="email@example.com">
+                <mat-hint>Enter your email address.</mat-hint>
+                <mat-error *ngIf="loginForm.get('email').hasError('required')">Email address is required.</mat-error>
+            </mat-form-field>
+            <div id="button-wrap">
+                <button mat-flat-button color="warn" (click)="togglePasswordReset()">Back</button>
+                <button mat-stroked-button color="warn" (click)="passwordReset(loginForm.get('email').value)">Submit</button>
+            </div>
+        </form>
+        <form *ngIf="forgotSubmitted">
+            <span id="text_1">A password reset email has been sent to {{loginForm.get('email').value}}.</span>
+            <div id="button-wrap">
+                <button mat-flat-button color="warn" (click)="handleResetClose()">close</button>
+            </div>
+        </form>
+        
+        <span id="terms">Term of use. Privacy policy</span>
+    </div>
+</div>

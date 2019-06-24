@@ -1,0 +1,25 @@
+<div class='app g-signin2' data-onsuccess="onSignIn">
+    <div class='app-calendar'>
+        <full-calendar
+            *ngIf="options"
+            [timeZone]="options.timeZone"
+            [defaultView]="options.defaultView"
+            [selectable]="selectable"
+            [googleCalendarApiKey]="options.googleCalendarApiKey"
+            [header]="options.header"
+            [themeSystem]="options.themeSystem"
+            [plugins]="options.plugins"
+            [weekends]="options.calendarWeekends"
+            [eventSources]="options.eventSources"
+            (dateClick)="handleDateClick($event)"
+            (select)="handleSelect($event)"
+            (eventClick)="handleEventClick($event)"
+            deepChangeDetection="true"
+        ></full-calendar>
+        <div class="button-row">
+                <button mat-flat-button color="warn" (click)="handleAuthClick($event)">login</button>
+                <button mat-flat-button color="warn" (click)="handleSignoutClick()">logout</button>
+        </div>
+    </div>
+</div>
+
