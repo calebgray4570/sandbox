@@ -45,7 +45,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     editable: true,
     themeSystem: 'bootstrap',
     plugins: [dayGridPlugin, timeGrigPlugin, interactionPlugin, bootstrapPlugin, googleCalendarPlugin],
-    googleCalendarApiKey: 'AIzaSyCC98dYDAOzEhqALFwOd8vUYTDXkgzLdYQ',
+    googleCalendarApiKey: 'MY_API_KEY',
     eventSources: [
       { 
         events: [
@@ -60,12 +60,12 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   
   calendarEvents: EventInput[] = [
     { title: 'Event Now', start: new Date() },
-    { googleCalendarId: 'm76fkqsjtb1n9isb9dgtamsvvg@group.calendar.google.com' }
+    { googleCalendarId: 'MY_CALENDAR_ID' }
   ];
 
   public auth2: any;
-  CLIENT_ID = '66881366777-2sdm1o1urd2i5bi0ghe5qrhv1qjs0llj.apps.googleusercontent.com';
-  API_KEY = 'AIzaSyCC98dYDAOzEhqALFwOd8vUYTDXkgzLdYQ';
+  CLIENT_ID = 'MY_CLIENT_API';
+  API_KEY = 'MY_API_KEY';
   DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
   SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
   isSignedIn: boolean = false;
